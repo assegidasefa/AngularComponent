@@ -20,3 +20,39 @@
 
 <!-- two way data binding -->
 <input type="text" [(ngModel)]="userName" (keyup.enter)="onkeyupTwoWayDataBinding()">
+
+
+<!-- one way vs two way data binding  -->
+
+<input type="text" [value]="textValue" (keyup.enter)="onewayDBinding()">
+
+<input type="text" [(ngModel)]="textValue" (keyup.enter)="twowayDBinding()">
+
+
+<!-- excrise  -->
+
+<input type="text" [(ngModel)]="postTitle" (keyup.enter)="postTitleHandler()">
+
+<textarea name="" [(ngModel)]="postDetail" (keyup.enter)="postDetailHandler()" id="" cols="30" rows="10"></textarea>
+
+
+<p>{{postTitle}}</p>
+<p>{{postDetail}}</p>
+
+<ul>
+  <li *ngFor="let post of postArray">{{post}}</li>
+  
+</ul>
+
+<p>Array Object</p>
+
+<button (click)="addNew()">Add New Data</button>
+
+<ul >
+  <li *ngFor="let obj of objectArray let i = index">
+    {{obj.postTitle}}
+
+    <button (click)="onDelete(i)">Delete</button>
+  </li>
+  
+</ul>

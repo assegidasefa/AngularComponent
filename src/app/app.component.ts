@@ -14,6 +14,17 @@ export class AppComponent implements AfterViewInit{
   fromChildOutPut:string | undefined;
   @ViewChild(PostComponent) childComp: any;
   userName:string | undefined;
+  textValue:string = "one way data binding";
+  postTitle:string | undefined;
+  postDetail:string | undefined;
+
+  postArray: Array<string> = ["post 1","post 2","post 3","post 4"]
+  objectArray:Array<any> = [
+    {id:1,postTitle:"Post 1"},
+    {id:2,postTitle:"Post 2"},
+    {id:3,postTitle:"Post 3"},
+    {id:4,postTitle:"Post 4"},
+  ]
 
   imgUrl:string='https://picsum.photos/536/354'
 
@@ -47,4 +58,29 @@ export class AppComponent implements AfterViewInit{
     console.log("two way",this.userName)
   }
 
+  onewayDBinding(){
+     console.log(this.textValue)
+  }
+
+  twowayDBinding(){
+    console.log(this.textValue)
+ }
+
+ postTitleHandler(){
+     this.postTitle;
+ }
+
+
+ postDetailHandler() {
+    this.postDetail
+ }
+
+ addNew() {
+  this.objectArray.push({id:6,postTitle:"post 6"})
+ }
+
+ onDelete(id: number){
+  
+  this.objectArray.splice(id,1)
+ }
 }
