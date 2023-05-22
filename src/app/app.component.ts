@@ -13,6 +13,9 @@ export class AppComponent implements AfterViewInit{
   message:string | undefined;
   fromChildOutPut:string | undefined;
   @ViewChild(PostComponent) childComp: any;
+  userName:string | undefined;
+
+  imgUrl:string='https://picsum.photos/536/354'
 
   constructor(){
     console.log(this.childComp)
@@ -27,4 +30,21 @@ export class AppComponent implements AfterViewInit{
    
     this.fromChildOutPut=$event
   }
+
+  buttonClick() {
+    console.log("clicked")
+  }
+
+  onKeyup($event: any) {
+    console.log("onkey up event handler",$event.target.value)
+  }
+
+  onKeyupTemplete(username: any) {
+    console.log("onkey up event handler",username)
+  }
+
+  onkeyupTwoWayDataBinding() {
+    console.log("two way",this.userName)
+  }
+
 }
